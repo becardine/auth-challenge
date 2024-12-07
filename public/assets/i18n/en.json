@@ -1,0 +1,88 @@
+{
+  "id": "en",
+  "auth": {
+    "main": {
+      "button": {
+        "label": "Contact Support"
+      },
+      "form": {
+        "email": {
+          "input": {
+            "label": "Email",
+            "placeholder": "Enter your email"
+          },
+          "button": {
+            "label": "Continue with email"
+          },
+          "toasts": {
+            "success": {
+              "title": "Email sent",
+              "description": "We have sent an email with a verification code."
+            },
+            "failed": {
+              "title": "Error sending email",
+              "description": "An error occurred while sending the email."
+            }
+          }
+        },
+        "separator": {
+          "label": "or"
+        },
+        "github": {
+          "button": {
+            "label": "Continue with GitHub"
+          }
+        },
+        "google": {
+          "button": {
+            "label": "Continue with Google"
+          }
+        },
+        "terms": {
+          "description": "By signing up, you agree to our terms",
+          "link": "Terms of Use"
+        }
+      }
+    },
+    "footer": {
+      "rights": "All rights reserved"
+    },
+    "metadata": {
+      "title": "Sign in to",
+      "description": ["Welcome to", "Please log in."]
+    }
+  },
+  "shared": {
+    "toasts": {
+      "acceptInvite": {
+        "failed": {
+          "title": "Error accepting invitation!",
+          "description": "An error occurred while accepting the invitation."
+        }
+      },
+      "declineInvite": {
+        "failed": {
+          "title": "Error declining invitation!",
+          "description": "An error occurred while declining the invitation."
+        }
+      }
+    },
+    "main": {
+      "title": "invited you to manage a team.",
+      "buttons": {
+        "accept": {
+          "label": "Accept"
+        },
+        "decline": {
+          "label": "Decline"
+        }
+      }
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    },
+    "metadata": {
+      "title": "Accept invitation"
+    }
+  }
+}

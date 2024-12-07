@@ -1,0 +1,88 @@
+{
+  "id": "pt",
+  "auth": {
+    "main": {
+      "button": {
+        "label": "Contatar Suporte"
+      },
+      "form": {
+        "email": {
+          "input": {
+            "label": "Seu email",
+            "placeholder": "Digite seu email"
+          },
+          "button": {
+            "label": "Continue com o email"
+          },
+          "toasts": {
+            "success": {
+              "title": "Email enviado",
+              "description": "Enviamos um email com um código de verificação."
+            },
+            "failed": {
+              "title": "Erro ao enviar email",
+              "description": "Ocorreu um erro ao enviar o email."
+            }
+          }
+        },
+        "separator": {
+          "label": "ou"
+        },
+        "github": {
+          "button": {
+            "label": "Continue com o GitHub"
+          }
+        },
+        "google": {
+          "button": {
+            "label": "Continue com o Google"
+          }
+        },
+        "terms": {
+          "text": "Ao continuar, você concorda com nossos termos",
+          "link": "Termos de Uso"
+        }
+      }
+    },
+    "footer": {
+      "rights": "Todos os direitos reservados"
+    },
+    "metadata": {
+      "title": "Entrar em",
+      "description": ["Bem-vindo ao", "Por favor, faça login."]
+    }
+  },
+  "shared": {
+    "toasts": {
+      "acceptInvite": {
+        "failed": {
+          "title": "Convite aceito com sucesso!",
+          "description": "Ocorreu um erro ao aceitar o convite."
+        }
+      },
+      "declineInvite": {
+        "failed": {
+          "title": "Convite recusado com sucesso!",
+          "description": "Ocorreu um erro ao recusar o convite."
+        }
+      }
+    },
+    "main": {
+      "title": "convidou você para gerenciar uma equipe.",
+      "buttons": {
+        "accept": {
+          "label": "Aceitar"
+        },
+        "decline": {
+          "label": "Recusar"
+        }
+      }
+    },
+    "footer": {
+      "rights": "Todos os direitos reservados."
+    },
+    "metadata": {
+      "title": "Aceitar convite"
+    }
+  }
+}
