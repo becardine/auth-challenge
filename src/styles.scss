@@ -1,1 +1,142 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 9% 98%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow: auto;
+  scrollbar-gutter: stable both-edges;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+form button[type="submit"] {
+  @apply mt-8;
+}
+
+form footer button[type="submit"] {
+  @apply mt-0;
+}
+
+.form-section main>div {
+  @apply rounded-none border-t-0 transition-all animate-duration-1000 ease-in-out;
+}
+
+.form-section main>div:first-child {
+  @apply rounded-t-lg border-t;
+}
+
+.form-section main>div:last-child {
+  @apply rounded-b-lg;
+}
+
+.form-section main>div:focus-within {
+  @apply brightness-95;
+}
+
+pre code {
+  white-space: pre;
+  overflow: auto;
+}
+
+/* Custom scrollbar styles */
+*::-webkit-scrollbar {
+  width: 1px;
+  height: 2px;
+  /* Set the height of the horizontal scrollbar */
+  position: absolute;
+  right: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(242, 242, 242, 0.025);
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(204, 204, 204, 0.1);
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(238, 238, 238, 0.5);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0 !important;
+  background: transparent !important;
+  /* make scrollbar transparent */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
