@@ -39,6 +39,7 @@
     "@angular/compiler-cli": "^18.2.0",
     "@tailwindcss/typography": "^0.5.15",
     "@types/jasmine": "~5.1.0",
+    "@types/lodash": "^4.17.13",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
