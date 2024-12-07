@@ -26,6 +26,7 @@
     "@ngx-translate/http-loader": "^16.0.0",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
     "eslint": "^9.16.0",
     "lodash": "^4.17.21",
     "ngx-sonner": "^2.0.2",
