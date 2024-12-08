@@ -10,17 +10,18 @@ import { TranslateModule } from '@ngx-translate/core'
 import { toast } from 'ngx-sonner'
 
 @Component({
-  selector: 'app-auth-form',
+  selector: 'app-register-form',
   standalone: true,
   imports: [UIModule, TranslateModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './auth-form.component.html',
-  styleUrl: './auth-form.component.scss',
+  templateUrl: './register-form.component.html',
+  styleUrl: './register-form.component.scss',
 })
-export class AuthFormComponent extends FormComponent {
+export class RegisterFormComponent extends FormComponent {
   // private readonly _magicLinkService = inject(MagicLinkService)
 
   constructor() {
     super({
+      name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     })
@@ -32,7 +33,7 @@ export class AuthFormComponent extends FormComponent {
       return
     }
 
-    const { email, password } = this.form.value
+    // const { email } = this.form.value
 
     const translationKeys = {
       successTitle: 'auth.main.form.email.toasts.success.title',

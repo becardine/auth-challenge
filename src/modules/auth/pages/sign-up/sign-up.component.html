@@ -1,0 +1,27 @@
+<div class="h-screen flex flex-col justify-between overflow-hidden">
+  <div class="flex items-center sticky top-0 justify-between p-8">
+    <button appButton size="icon" variant="outline">
+      <app-icon [name]="'arrow_back'" [size]="'sm'" />
+    </button>
+    <button
+      appButton
+      variant="outline"
+      class="flex items-center gap-1"
+    >
+      <app-icon [name]="'help'" [size]="'sm'"></app-icon>
+      {{ "auth.main.button.label" | translate }}
+    </button>
+  </div>
+  <div class="flex items-start md:items-center justify-center p-8">
+    <div class="w-[26rem]">
+      <app-register-form />
+    </div>
+  </div>
+
+  <footer class="flex justify-center p-8 opacity-40">
+    <span>
+      © {{ getFullYear() }}
+      {{ "auth.footer.rights" | translate }}.
+    </span>
+  </footer>
+</div>

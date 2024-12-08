@@ -6,6 +6,14 @@
   <form (ngSubmit)="submit()" [formGroup]="form" class="w-full space-y-4 mb-8">
     <input
       appInput
+      placeholder="{{ 'auth.main.sign-up.form.input.name.placeholder' | translate }}"
+      type="text"
+      class="w-full focus-visible:border-foreground focus-visible:border-2"
+      [size]="'xl'"
+      formControlName="name"
+    />
+    <input
+      appInput
       placeholder="{{ 'auth.main.sign-in.form.input.email.placeholder' | translate }}"
       type="email"
       class="w-full focus-visible:border-foreground focus-visible:border-2"
@@ -30,7 +38,7 @@
       type="submit"
     >
       <app-icon-email class="mr-3" />
-      {{ "auth.main.sign-in.form.button.label" | translate }}
+      {{ "auth.main.sign-up.form.button.label" | translate }}
     </button>
 
     <app-separator-with-text>
@@ -43,9 +51,9 @@
       variant="outline"
       size="lg"
       class="w-full h-12 flex items-center justify-center"
-      (click)="navigateTo('/auth/sign-up')"
+      (click)="navigateTo('/auth/sign-in')"
     >
-      {{ "auth.main.sign-in.buttons.sign-up.label" | translate }}
+      {{ "auth.main.sign-up.buttons.login.label" | translate }}
     </button>
   </form>
 
