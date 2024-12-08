@@ -34,23 +34,6 @@
               "title": "Error sending email",
               "description": "An error occurred while sending the email."
             }
-          },
-          "separator": {
-            "label": "or"
-          },
-          "github": {
-            "button": {
-              "label": "Continue with GitHub"
-            }
-          },
-          "google": {
-            "button": {
-              "label": "Continue with Google"
-            }
-          },
-          "terms": {
-            "description": "By signing up, you agree to our terms",
-            "link": "Terms of Use"
           }
         }
       },
@@ -62,6 +45,10 @@
         },
         "form": {
           "input": {
+            "name": {
+              "label": "Your name",
+              "placeholder": "Enter your name"
+            },
             "email": {
               "label": "Seu email",
               "placeholder": "Digite seu email"
@@ -83,25 +70,15 @@
               "title": "Erro ao enviar email",
               "description": "Ocorreu um erro ao enviar o email."
             }
-          },
-          "separator": {
-            "label": "ou"
-          },
-          "github": {
-            "button": {
-              "label": "Continue com o GitHub"
-            }
-          },
-          "google": {
-            "button": {
-              "label": "Continue com o Google"
-            }
-          },
-          "terms": {
-            "text": "Ao continuar, você concorda com nossos termos",
-            "link": "Termos de Uso"
           }
         }
+      },
+      "separator": {
+        "label": "or"
+      },
+      "terms": {
+        "description": "By signing up, you agree to our terms",
+        "link": "Terms of Use"
       }
     },
     "footer": {

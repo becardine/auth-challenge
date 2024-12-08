@@ -13,6 +13,10 @@
         },
         "form": {
           "input": {
+            "name": {
+              "label": "Seu nome",
+              "placeholder": "Digite seu nome"
+            },
             "email": {
               "label": "Seu email",
               "placeholder": "Digite seu email"
@@ -34,23 +38,6 @@
               "title": "Erro ao enviar email",
               "description": "Ocorreu um erro ao enviar o email."
             }
-          },
-          "separator": {
-            "label": "ou"
-          },
-          "github": {
-            "button": {
-              "label": "Continue com o GitHub"
-            }
-          },
-          "google": {
-            "button": {
-              "label": "Continue com o Google"
-            }
-          },
-          "terms": {
-            "text": "Ao continuar, você concorda com nossos termos",
-            "link": "Termos de Uso"
           }
         }
       },
@@ -83,25 +70,15 @@
               "title": "Erro ao enviar email",
               "description": "Ocorreu um erro ao enviar o email."
             }
-          },
-          "separator": {
-            "label": "ou"
-          },
-          "github": {
-            "button": {
-              "label": "Continue com o GitHub"
-            }
-          },
-          "google": {
-            "button": {
-              "label": "Continue com o Google"
-            }
-          },
-          "terms": {
-            "text": "Ao continuar, você concorda com nossos termos",
-            "link": "Termos de Uso"
           }
         }
+      },
+      "separator": {
+        "label": "ou"
+      },
+      "terms": {
+        "description": "Ao continuar, você concorda com nossos termos",
+        "link": "Termos de Uso"
       }
     },
     "footer": {
