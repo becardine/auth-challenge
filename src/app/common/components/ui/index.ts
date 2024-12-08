@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { ButtonDirective } from './button.directive'
+import { ButtonDirective, ButtonGroupComponent } from './button.directive'
 import { cardComponents } from './card'
 import { IconComponent } from './icon.component'
 import { icons } from './icons'
@@ -10,6 +10,8 @@ import { SeparatorWithTextComponent } from './separator-with-text.component'
 import { SpinnerComponent } from './spinner.component'
 import { ToasterComponent } from './toaster.component'
 
+export * from './button.directive'
+
 export const UIImports = [
   IconComponent,
   ToasterComponent,
@@ -19,6 +21,7 @@ export const UIImports = [
   SpinnerComponent,
   SeparatorWithTextComponent,
   LogoComponent,
+  ButtonGroupComponent,
   ...cardComponents,
   ...icons,
 ] as const

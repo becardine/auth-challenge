@@ -1,5 +1,6 @@
-import { routesAuth } from '@/modules'
+import { routesAuth, routesHome } from '@/modules'
 import { Routes } from '@angular/router'
+import { AppLayoutComponent } from './common/layouts/app/app-layout.component'
 
 export const routes: Routes = [
   { path: '', redirectTo: 'app/home', pathMatch: 'full' },
@@ -7,15 +8,15 @@ export const routes: Routes = [
     path: 'auth',
     loadChildren: routesAuth,
   },
-  // {
-  //   path: 'app',
-  //   canActivate: [isLoggedGuard()],
-  //   // component: LayoutComponent,
-  //   children: [
-  //     {
-  //       path: 'home',
-  //       // component: 'HomeComponent',
-  //     },
-  //   ],
-  // },
+  {
+    path: 'app',
+    // canActivate: [isLoggedGuard()],
+    component: AppLayoutComponent,
+    children: [
+      {
+        path: 'home',
+        loadChildren: routesHome,
+      },
+    ],
+  },
 ]
