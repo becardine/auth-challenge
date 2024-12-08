@@ -6,11 +6,14 @@ import {
   type NavigationExtras,
   type ParamMap,
 } from '@angular/router'
+import { Observable } from 'rxjs'
+import { TranslationService } from '../translation/translation.service'
 
 @Directive()
 export abstract class ComponentBase {
   protected readonly _router = inject(Router)
   protected readonly _activatedRoute = inject(ActivatedRoute)
+  protected readonly _translationService = inject(TranslationService)
 
   public isLoading = signal<boolean>(false)
 
@@ -20,6 +23,14 @@ export abstract class ComponentBase {
 
   protected get queryParams(): ParamMap {
     return this._getLastChild(this._activatedRoute.snapshot).queryParamMap
+  }
+
+  protected getDescription(key: string): Observable<string> {
+    return this._translationService.get(key)
+  }
+
+  protected goBack(): void {
+    this._router.navigate(['..'], { relativeTo: this._activatedRoute })
   }
 
   public async navigateTo(
