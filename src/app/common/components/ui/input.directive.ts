@@ -12,7 +12,7 @@ import cn from 'classnames'
 import { clsx, type ClassValue } from 'clsx'
 
 export const inputVariants = cva(
-  'flex w-full rounded-md font-normal bg-transparent text-sm file:border-0 file:text-foreground file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  'flex w-full rounded-md font-normal border-1 bg-secondary text-sm file:border-0 file:text-foreground file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       size: {
