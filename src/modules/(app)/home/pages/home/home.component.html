@@ -1,0 +1,21 @@
+<app-dashboard-page>
+  <app-dashboard-page-header>
+    <app-dashboard-page-header-title >
+      <h1>
+        {{ 'dashboard.main.title' | translate }}.  {{ 'dashboard.main.description' | translate }}
+      </h1>
+
+    </app-dashboard-page-header-title>
+    <app-icon [name]="'logout'" [size]="'lg'" [className]="'text-gray-500'"></app-icon>
+  </app-dashboard-page-header>
+  <app-dashboard-page-main [className]="'space-y-4 flex justify-center items-start'">
+    <div className="container max-w-screen-lg ">
+      <div className="grid-flow-row gap-4">
+        <div className="bg-white p-4 rounded-lg shadow-md">
+          <h2 className="text-lg font-semibold">Welcome to the Dashboard</h2>
+          <p className="text-gray-500">This is the dashboard home page.</p>
+        </div>
+      </div>
+    </div>
+  </app-dashboard-page-main>
+</app-dashboard-page>
