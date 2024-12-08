@@ -1,0 +1,60 @@
+<div class="flex flex-col items-center justify-center text-center">
+  <div class="flex flex-col items-center mb-8">
+    <app-logo [onlyIcon]="true" [className]="'h-12 mb-4'" />
+  </div>
+
+  <form (ngSubmit)="submit()" [formGroup]="form" class="w-full space-y-4 mb-8">
+    <input
+      appInput
+      placeholder="{{ 'auth.main.sign-in.form.input.email.placeholder' | translate }}"
+      type="email"
+      class="w-full focus-visible:border-foreground focus-visible:border-2"
+      [size]="'xl'"
+      formControlName="email"
+    />
+    <input
+      appInput
+      placeholder="{{ 'auth.main.sign-in.form.input.password.placeholder' | translate }}"
+      type="password"
+      class="w-full focus-visible:border-foreground focus-visible:border-2"
+      [size]="'xl'"
+      formControlName="password"
+    />
+    <button
+      appButton
+      type="button"
+      variant="default"
+      size="lg"
+      class="w-full h-12 flex items-center justify-center"
+      [disabled]="isLoading()"
+      type="submit"
+    >
+      <app-icon-email class="mr-3" />
+      {{ "auth.main.sign-in.form.button.label" | translate }}
+    </button>
+
+    <app-separator-with-text>
+      {{ "auth.main.sign-in.form.separator.label" | translate }}
+    </app-separator-with-text>
+
+    <button
+      appButton
+      type="button"
+      variant="outline"
+      size="lg"
+      class="w-full h-12 flex items-center justify-center"
+    >
+      {{ "auth.main.sign-in.buttons.sign-up.label" | translate }}
+    </button>
+  </form>
+
+  <span class="text-sm opacity-60 max-w-[80%]">
+    {{ "auth.main.sign-in.form.terms.description" | translate }}
+    <br />
+    <a class="underline">
+      <b>
+        {{ "auth.main.sign-in.form.terms.link" | translate }}
+      </b>
+    </a>
+  </span>
+</div>

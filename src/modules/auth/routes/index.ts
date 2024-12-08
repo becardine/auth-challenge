@@ -1,18 +1,19 @@
 import { Route } from '@angular/router'
 import { isLoggedOutGuard } from '../guards'
+import { SignInComponent } from '../pages/sign-in/sign-in.component'
 
 export function routesAuth(): Route[] {
   return [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
     {
-      path: 'login',
+      path: 'sign-in',
       canActivate: [isLoggedOutGuard()],
-      // component: SignInComponent,
+      component: SignInComponent,
     },
-    {
-      path: 'register',
-      canActivate: [isLoggedOutGuard()],
-      // component: RegisterComponent,
-    },
+    // {
+    //   path: 'register',
+    //   canActivate: [isLoggedOutGuard()],
+    //   // component: RegisterComponent,
+    // },
   ]
 }
