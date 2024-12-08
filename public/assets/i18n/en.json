@@ -89,6 +89,12 @@
       "description": ["Welcome to", "Please log in."]
     }
   },
+  "dashboard": {
+    "main": {
+      "title": "Welcome to the dashboard",
+      "description": "You are logged in!"
+    }
+  },
   "shared": {
     "toasts": {
       "acceptInvite": {

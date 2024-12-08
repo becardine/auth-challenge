@@ -89,6 +89,12 @@
       "description": ["Bem-vindo ao", "Por favor, faça login."]
     }
   },
+  "dashboard": {
+    "main": {
+      "title": "Bem-vindo ao painel",
+      "description": "Você está logado!"
+    }
+  },
   "shared": {
     "toasts": {
       "acceptInvite": {
