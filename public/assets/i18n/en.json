@@ -5,14 +5,25 @@
       "button": {
         "label": "Contact Support"
       },
-      "form": {
-        "email": {
+      "sign-in": {
+        "buttons": {
+          "sign-up": {
+            "label": "Don't have an account? Sign up"
+          }
+        },
+        "form": {
           "input": {
-            "label": "Email",
-            "placeholder": "Enter your email"
+            "email": {
+              "label": "Email",
+              "placeholder": "Enter your email"
+            },
+            "password": {
+              "label": "Password",
+              "placeholder": "Enter your password"
+            }
           },
           "button": {
-            "label": "Continue with email"
+            "label": "Continue"
           },
           "toasts": {
             "success": {
@@ -23,24 +34,73 @@
               "title": "Error sending email",
               "description": "An error occurred while sending the email."
             }
+          },
+          "separator": {
+            "label": "or"
+          },
+          "github": {
+            "button": {
+              "label": "Continue with GitHub"
+            }
+          },
+          "google": {
+            "button": {
+              "label": "Continue with Google"
+            }
+          },
+          "terms": {
+            "description": "By signing up, you agree to our terms",
+            "link": "Terms of Use"
+          }
+        }
+      },
+      "sign-up": {
+        "buttons": {
+          "login": {
+            "label": "Already have an account? Log in"
           }
         },
-        "separator": {
-          "label": "or"
-        },
-        "github": {
+        "form": {
+          "input": {
+            "email": {
+              "label": "Seu email",
+              "placeholder": "Digite seu email"
+            },
+            "password": {
+              "label": "Senha",
+              "placeholder": "Digite sua senha"
+            }
+          },
           "button": {
-            "label": "Continue with GitHub"
+            "label": "Continue"
+          },
+          "toasts": {
+            "success": {
+              "title": "Email enviado",
+              "description": "Enviamos um email com um código de verificação."
+            },
+            "failed": {
+              "title": "Erro ao enviar email",
+              "description": "Ocorreu um erro ao enviar o email."
+            }
+          },
+          "separator": {
+            "label": "ou"
+          },
+          "github": {
+            "button": {
+              "label": "Continue com o GitHub"
+            }
+          },
+          "google": {
+            "button": {
+              "label": "Continue com o Google"
+            }
+          },
+          "terms": {
+            "text": "Ao continuar, você concorda com nossos termos",
+            "link": "Termos de Uso"
           }
-        },
-        "google": {
-          "button": {
-            "label": "Continue with Google"
-          }
-        },
-        "terms": {
-          "description": "By signing up, you agree to our terms",
-          "link": "Terms of Use"
         }
       }
     },
