@@ -1,3 +1,4 @@
+import { AuthService } from '@/modules'
 import { coerceArray } from '@angular/cdk/coercion'
 import { Directive, inject, signal } from '@angular/core'
 import {
@@ -7,6 +8,7 @@ import {
   type ParamMap,
 } from '@angular/router'
 import { Observable } from 'rxjs'
+import { ThemeService } from '../theme'
 import { TranslationService } from '../translation/translation.service'
 
 @Directive()
@@ -14,6 +16,8 @@ export abstract class ComponentBase {
   protected readonly _router = inject(Router)
   protected readonly _activatedRoute = inject(ActivatedRoute)
   protected readonly _translationService = inject(TranslationService)
+  protected readonly _authService = inject(AuthService)
+  protected readonly _themeService = inject(ThemeService)
 
   public isLoading = signal<boolean>(false)
 
@@ -60,5 +64,14 @@ export abstract class ComponentBase {
     } finally {
       this.isLoading.update(() => false)
     }
+  }
+
+  logout(): void {
+    this._authService.logout()
+    this.navigateTo(['/auth/sign-in'])
+  }
+
+  public changeTheme(): void {
+    this._themeService.toggleDarkMode()
   }
 }

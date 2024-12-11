@@ -32,7 +32,6 @@ export abstract class FormComponent extends ComponentBase {
         controls.push(control)
         control.disable()
       }
-
       return controls
     }, [])
 
@@ -41,6 +40,9 @@ export abstract class FormComponent extends ComponentBase {
       .then((result) => {
         this.form.reset()
         return result
+      })
+      .catch((error) => {
+        throw error
       })
       .finally(() => {
         for (const control of controls) {

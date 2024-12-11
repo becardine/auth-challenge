@@ -1,4 +1,4 @@
-import { routesAuth, routesHome } from '@/modules'
+import { isLoggedGuard, routesAuth, routesHome } from '@/modules'
 import { Routes } from '@angular/router'
 import { AppLayoutComponent } from './common/layouts/app/app-layout.component'
 
@@ -10,7 +10,7 @@ export const routes: Routes = [
   },
   {
     path: 'app',
-    // canActivate: [isLoggedGuard()],
+    canActivate: [isLoggedGuard()],
     component: AppLayoutComponent,
     children: [
       {

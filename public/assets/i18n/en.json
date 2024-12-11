@@ -27,12 +27,12 @@
           },
           "toasts": {
             "success": {
-              "title": "Email sent",
-              "description": "We have sent an email with a verification code."
+              "title": "Successfully logged in",
+              "description": "You have successfully logged in."
             },
             "failed": {
-              "title": "Error sending email",
-              "description": "An error occurred while sending the email."
+              "title": "Error logging in",
+              "description": "An error occurred while logging in."
             }
           }
         }
@@ -50,12 +50,12 @@
               "placeholder": "Enter your name"
             },
             "email": {
-              "label": "Seu email",
-              "placeholder": "Digite seu email"
+              "label": "Your email",
+              "placeholder": "Enter your email"
             },
             "password": {
-              "label": "Senha",
-              "placeholder": "Digite sua senha"
+              "label": "Your password",
+              "placeholder": "Enter your password"
             }
           },
           "button": {
@@ -63,12 +63,12 @@
           },
           "toasts": {
             "success": {
-              "title": "Email enviado",
-              "description": "Enviamos um email com um código de verificação."
+              "title": "Successfully signed up",
+              "description": "You received an email to confirm your account."
             },
             "failed": {
-              "title": "Erro ao enviar email",
-              "description": "Ocorreu um erro ao enviar o email."
+              "title": "Error signing up",
+              "description": "An error occurred while sending the confirmation email."
             }
           }
         }
