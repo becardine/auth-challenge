@@ -2,7 +2,6 @@ import { ComponentBase, UIModule } from '@/app/common/components'
 import { Component, OnInit, signal } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { TranslateModule } from '@ngx-translate/core'
-import { toast } from 'ngx-sonner'
 import { AuthFormComponent } from '../../components/auth-form/auth-form.component'
 // import { CreateSessionService } from '../../core'
 
@@ -22,19 +21,19 @@ export class SignInComponent extends ComponentBase implements OnInit {
       const sub = params['sub']
       const callback = params['callback']
       if (callback && sub) {
-        await this.submit(sub)
+        // await this.submit(sub)
       }
     })
   }
 
-  public async submit(sub: string) {
-    try {
-      // await this._createSessionService.execute({ sub })
-      this._router.navigate(['/app/home'])
-    } catch (error: any) {
-      toast.error('Error signing in', {
-        description: error.error.message,
-      })
-    }
-  }
+  // public async submit(sub: string) {
+  //   try {
+  //     await this._createSessionService.execute({ sub })
+  //     this._router.navigate(['/app/home'])
+  //   } catch (error: any) {
+  //     toast.error('Error signing in', {
+  //       description: error.error.message,
+  //     })
+  //   }
+  // }
 }

@@ -1,5 +1,5 @@
 import { FormComponent, UIModule } from '@/app/common/components'
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import {
   FormControl,
   FormsModule,
@@ -8,6 +8,8 @@ import {
 } from '@angular/forms'
 import { TranslateModule } from '@ngx-translate/core'
 import { toast } from 'ngx-sonner'
+import { SignInService } from '../../core/data/sign-in.service'
+import { AuthenticateParams } from '../../core/entities/authenticate'
 
 @Component({
   selector: 'app-auth-form',
@@ -17,7 +19,7 @@ import { toast } from 'ngx-sonner'
   styleUrl: './auth-form.component.scss',
 })
 export class AuthFormComponent extends FormComponent {
-  // private readonly _magicLinkService = inject(MagicLinkService)
+  private readonly _signInService = inject(SignInService)
 
   constructor() {
     super({
@@ -35,10 +37,10 @@ export class AuthFormComponent extends FormComponent {
     const { email, password } = this.form.value
 
     const translationKeys = {
-      successTitle: 'auth.main.form.email.toasts.success.title',
-      successDescription: 'auth.main.form.email.toasts.success.description',
-      failedTitle: 'auth.main.form.email.toasts.failed.title',
-      failedDescription: 'auth.main.form.email.toasts.failed.description',
+      successTitle: 'auth.main.sign-in.form.toasts.success.title',
+      successDescription: 'auth.main.sign-in.form.toasts.success.description',
+      failedTitle: 'auth.main.sign-in.form.toasts.failed.title',
+      failedDescription: 'auth.main.sign-in.form.toasts.failed.description',
     }
 
     const translations = await this._translationService.getTranslations([
@@ -49,12 +51,13 @@ export class AuthFormComponent extends FormComponent {
     ])
 
     await this.load(async () => {
-      // const params: MagicLinkParams = { email }
-      // this._magicLinkService.execute(params).then(() => {
-      //   toast.success(translations[translationKeys.successTitle], {
-      //     description: translations[translationKeys.successDescription],
-      //   })
-      // })
+      const params: AuthenticateParams = { email, password }
+      this._signInService.execute(params).then(() => {
+        toast.success(translations[translationKeys.successTitle], {
+          description: translations[translationKeys.successDescription],
+        })
+        this._router.navigate(['/app/home'])
+      })
     }).catch((error) => {
       toast.error(translations[translationKeys.failedTitle], {
         description:
