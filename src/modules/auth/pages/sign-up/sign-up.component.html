@@ -1,13 +1,9 @@
 <div class="h-screen flex flex-col justify-between overflow-hidden">
   <div class="flex items-center sticky top-0 justify-between p-8">
     <button appButton size="icon" variant="outline">
-      <app-icon [name]="'arrow_back'" [size]="'sm'" />
+      <app-icon [name]="'nights_stay'" [size]="'sm'" (click)="changeTheme()" />
     </button>
-    <button
-      appButton
-      variant="outline"
-      class="flex items-center gap-1"
-    >
+    <button appButton variant="outline" class="flex items-center gap-1">
       <app-icon [name]="'help'" [size]="'sm'"></app-icon>
       {{ "auth.main.button.label" | translate }}
     </button>
@@ -20,8 +16,7 @@
 
   <footer class="flex justify-center p-8 opacity-40">
     <span>
-      © {{ getFullYear() }}
-      {{ "auth.footer.rights" | translate }}.
+      © {{ getFullYear() }} {{ "auth.footer.rights" | translate }}.
     </span>
   </footer>
 </div>

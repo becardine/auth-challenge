@@ -6,7 +6,9 @@
   <form (ngSubmit)="submit()" [formGroup]="form" class="w-full space-y-4 mb-8">
     <input
       appInput
-      placeholder="{{ 'auth.main.sign-up.form.input.name.placeholder' | translate }}"
+      placeholder="{{
+        'auth.main.sign-up.form.input.name.placeholder' | translate
+      }}"
       type="text"
       class="w-full focus-visible:border-foreground focus-visible:border-2"
       [size]="'xl'"
@@ -14,7 +16,9 @@
     />
     <input
       appInput
-      placeholder="{{ 'auth.main.sign-in.form.input.email.placeholder' | translate }}"
+      placeholder="{{
+        'auth.main.sign-in.form.input.email.placeholder' | translate
+      }}"
       type="email"
       class="w-full focus-visible:border-foreground focus-visible:border-2"
       [size]="'xl'"
@@ -22,12 +26,32 @@
     />
     <input
       appInput
-      placeholder="{{ 'auth.main.sign-in.form.input.password.placeholder' | translate }}"
+      placeholder="{{
+        'auth.main.sign-in.form.input.password.placeholder' | translate
+      }}"
       type="password"
       class="w-full focus-visible:border-foreground focus-visible:border-2"
       [size]="'xl'"
       formControlName="password"
     />
+
+    @if (passwordStrength) {
+      <div class="mt-2">
+        <div class="relative w-full h-2 bg-gray-200 rounded">
+          <div
+            class="absolute h-full rounded"
+            [ngStyle]="{
+              width: passwordPercentage + '%',
+              'background-color': getStrengthColor(passwordStrength),
+            }"
+          ></div>
+        </div>
+        <span class="text-sm mt-1">
+          Password strength: {{ passwordStrength }}
+        </span>
+      </div>
+    }
+
     <button
       appButton
       type="button"
@@ -52,6 +76,7 @@
       size="lg"
       class="w-full h-12 flex items-center justify-center"
       (click)="navigateTo('/auth/sign-in')"
+      [disabled]="isLoading()"
     >
       {{ "auth.main.sign-up.buttons.login.label" | translate }}
     </button>

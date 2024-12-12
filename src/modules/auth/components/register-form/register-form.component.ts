@@ -1,5 +1,6 @@
 import { FormComponent, UIModule } from '@/app/common/components'
-import { Component } from '@angular/core'
+import { NgStyle } from '@angular/common'
+import { Component, inject, OnInit } from '@angular/core'
 import {
   FormControl,
   FormsModule,
@@ -8,16 +9,28 @@ import {
 } from '@angular/forms'
 import { TranslateModule } from '@ngx-translate/core'
 import { toast } from 'ngx-sonner'
+import { SignUpParams, SignUpService } from '../../core'
+import { PasswordStrengthService } from '../../core/data/password-strength.service'
 
 @Component({
   selector: 'app-register-form',
   standalone: true,
-  imports: [UIModule, TranslateModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    UIModule,
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgStyle,
+  ],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss',
 })
-export class RegisterFormComponent extends FormComponent {
-  // private readonly _magicLinkService = inject(MagicLinkService)
+export class RegisterFormComponent extends FormComponent implements OnInit {
+  private readonly _signUpService = inject(SignUpService)
+  private readonly _passwordStrengthService = inject(PasswordStrengthService)
+
+  public passwordStrength: string = ''
+  public passwordPercentage: number = 0
 
   constructor() {
     super({
@@ -27,19 +40,42 @@ export class RegisterFormComponent extends FormComponent {
     })
   }
 
+  ngOnInit() {
+    this.form.get('password')?.valueChanges.subscribe((value) => {
+      const result = this._passwordStrengthService.evaluatePassword(value)
+      this.passwordStrength = result.strength
+      this.passwordPercentage = result.percentage
+    })
+  }
+
+  getStrengthColor(strength: string): string {
+    switch (strength) {
+      case 'very strong':
+        return 'green'
+      case 'strong':
+        return 'yellowgreen'
+      case 'medium':
+        return 'orange'
+      case 'weak':
+        return 'red'
+      default:
+        return 'gray'
+    }
+  }
+
   public async submit() {
     if (this.form.invalid) {
       this.form.markAllAsTouched()
       return
     }
 
-    // const { email } = this.form.value
+    const { email, name, password } = this.form.value
 
     const translationKeys = {
-      successTitle: 'auth.main.form.email.toasts.success.title',
-      successDescription: 'auth.main.form.email.toasts.success.description',
-      failedTitle: 'auth.main.form.email.toasts.failed.title',
-      failedDescription: 'auth.main.form.email.toasts.failed.description',
+      successTitle: 'auth.main.sign-up.form.toasts.success.title',
+      successDescription: 'auth.main.sign-up.form.toasts.success.description',
+      failedTitle: 'auth.main.sign-up.form.toasts.failed.title',
+      failedDescription: 'auth.main.sign-up.form.toasts.failed.description',
     }
 
     const translations = await this._translationService.getTranslations([
@@ -49,18 +85,22 @@ export class RegisterFormComponent extends FormComponent {
       translationKeys.failedDescription,
     ])
 
-    await this.load(async () => {
-      // const params: MagicLinkParams = { email }
-      // this._magicLinkService.execute(params).then(() => {
-      //   toast.success(translations[translationKeys.successTitle], {
-      //     description: translations[translationKeys.successDescription],
-      //   })
-      // })
-    }).catch((error) => {
+    try {
+      await this.load(async () => {
+        const params: SignUpParams = { email, name, password }
+        await this._signUpService.execute(params)
+
+        toast.success(translations[translationKeys.successTitle], {
+          description: translations[translationKeys.successDescription],
+        })
+      })
+    } catch (error: any) {
+      console.error(error)
+
       toast.error(translations[translationKeys.failedTitle], {
         description:
-          translations[translationKeys.failedDescription] + error.message,
+          error.error.title ?? translations[translationKeys.failedDescription],
       })
-    })
+    }
   }
 }
