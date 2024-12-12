@@ -50,19 +50,20 @@ export class AuthFormComponent extends FormComponent {
       translationKeys.failedDescription,
     ])
 
-    await this.load(async () => {
-      const params: AuthenticateParams = { email, password }
-      this._signInService.execute(params).then(() => {
+    try {
+      await this.load(async () => {
+        const params: AuthenticateParams = { email, password }
+        await this._signInService.execute(params)
         toast.success(translations[translationKeys.successTitle], {
           description: translations[translationKeys.successDescription],
         })
         this._router.navigate(['/app/home'])
       })
-    }).catch((error) => {
+    } catch (error: any) {
       toast.error(translations[translationKeys.failedTitle], {
         description:
-          translations[translationKeys.failedDescription] + error.message,
+          error.error.title ?? translations[translationKeys.failedDescription],
       })
-    })
+    }
   }
 }

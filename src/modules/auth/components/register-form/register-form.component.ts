@@ -94,6 +94,7 @@ export class RegisterFormComponent extends FormComponent implements OnInit {
           description: translations[translationKeys.successDescription],
         })
       })
+      this._router.navigate(['/auth/sign-in'])
     } catch (error: any) {
       console.error(error)
 

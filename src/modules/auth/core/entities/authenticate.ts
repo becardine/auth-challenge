@@ -19,3 +19,8 @@ export interface AuthenticateParams {
   email: string | null
   password: string | null
 }
+
+export interface ConfirmEmailParams {
+  email: string | null
+  token: string | null
+}
