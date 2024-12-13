@@ -21,21 +21,26 @@ export class SignInComponent extends ComponentBase implements OnInit {
   ngOnInit(): void {
     this._activatedRoute.queryParams.subscribe(async (params) => {
       const email = params['email']
-      const callback = params['callback']
-      console.log(email, callback)
-      if (callback && email) {
-        await this.submit(email, callback)
+      const token = params['token']
+      console.log(email, token)
+      if (token && email) {
+        await this.submit(email, token)
       }
     })
   }
 
   public async submit(email: string, token: string): Promise<void> {
     try {
-      await this._confirmEmailService.execute({ email, token })
+      await this.load(async () => {
+        await this._confirmEmailService.execute({ email, token })
+        toast.success('Email confirmed', {
+          description: 'You can now sign in',
+        })
+      })
       this._router.navigate(['/app/home'])
     } catch (error: any) {
       toast.error('Error signing in', {
-        description: error.error.message,
+        description: error.error.title,
       })
     }
   }
